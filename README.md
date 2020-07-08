@@ -4,7 +4,7 @@ Projet Fil rouge réalisé sur toute l'année dans le cadre du MS Big Data à T�
 
 ## Structure du code
 
-### Préparation des données
+Dossier `data-preparation/`:
 
 * **1-clean-bird-csv** : Ce notebook permet de pré-processer les fichiers contenant les traces GPS des oiseaux ; fichiers issus de Movebank. Il enlève 
  les colonnes que l'on n'utilisera pas, supprime les oiseaux qui ne migrent pas et enlève les jours en dehors des périodes de migration de chaque oiseau.
@@ -24,15 +24,23 @@ Pour cela, on effectue les opérations suivantes:
     * on ajoute à ces données les données météo ;
     * on calcule des colonnes supplémentaires comme la variable ensoleillement.
 
-### Modèles de régression
+Dossier `regression-model/`:
+
+* **Regression_model_final** : Ce notebook résume la méthodologie employée pour obtenir nos meilleurs résultats. Il constitue donc une version nettoyée et arrangée de nos différents essais. Tous ces essais ne sont pas présentés ici, seuls les modèles les plus prometteurs sont conservés avec le code permettant de paramétrer ces modèles et de les utiliser. 
+
+* **Regression_model_exploration_3** : Ce notebook est la troisième grosse itération de nos tests sur la régression. Il constitue donc la version non nettoyée du notebook **Regression_model_final**.
+
+Dossier `saved-model/` :
+
+* Dans ce dossier se trouve la sauvegarde du modèle entraîné avec lequel nous avons obtenu nos meilleurs résultats. Un morceau de code permettant de le réutiliser se trouve dans le notebook **Regression_model_final**.
 
 * **Regression_model_exploration_3**: Ce notebook regroupe les explorations faites dans le cadre du développement des modèles de régression.
 
 * **Regression_model_final**: Ce notebook contient le code utilisé pour obtenir nos résultats avec les modèles de régression. Il traite du nettoyage des données, de leur préparation, des méthodes de sélections des caractéristiques, de sélection des modèles et du réglage des modèles les plus performants (XGBOOST, LIGHTGBM). Se trouvent également des affichages graphiques des résultats.
 
-### Tests de modèles à partir de séries temporelles
+Dossier `time-serie-models/` :
 
-Le dossier `time-serie-models/` contient le code de l'approche deep learning essayée pour analyser les séries temporelles:
+Ce dossier  contient le code de l'approche deep learning essayée pour analyser les séries temporelles:
 
 * **Timeseries_Creation_Dataframe_Oiseaux**: Ce notebook prépare les données pour l'analyse des séries temporelles. Le code se base sur le notebook *4-creation-dataframe*.
 
