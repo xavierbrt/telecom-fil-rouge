@@ -24,7 +24,15 @@ Pour cela, on effectue les opérations suivantes:
     * on ajoute à ces données les données météo ;
     * on calcule des colonnes supplémentaires comme la variable ensoleillement.
 
+Dossier `regression-model/`:
 
+* **Regression_model_final** : Ce notebook résume la méthodologie employée pour obtenir nos meilleurs résultats. Il constitue donc une version nettoyée et arrangée de nos différents essais. Tous ces essais ne sont pas présentés ici, seuls les modèles les plus prometteurs sont conservés avec le code permettant de paramétrer ces modèles et de les utiliser. 
+
+* **Regression_model_exploration_3** : Ce notebook est la troisième grosse itération de nos tests sur la régression. Il constitue donc la version non nettoyée du notebook **Regression_model_final**.
+
+Dossier `saved-model/` :
+
+* Dans ce dossier se trouve la sauvegarde du modèle entraîné avec lequel nous avons obtenu nos meilleurs résultats. Un morceau de code permettant de le réutiliser se trouve dans le notebook **Regression_model_final**.
 
 
 ## Illustrations
