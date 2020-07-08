@@ -17,7 +17,7 @@ La deuxième partie du notebook permet de diviser le fichier contenant toutes le
 * **3-compute-gps-surface** : Ce notebook calcule les surfaces couvertes par les oiseaux d'un fichier de tracking GPS, pré-processé par le notebook *1-clean-bird-csv* ou par le notebook *2-concatenate-bird-csv*. On calcule ces surfaces selon une certaine granularité temporelle (par semestre par défaut).<br />
 L'objectif est de savoir quels seront les besoins en données météo pour couvrir les traces GPS de ces oiseaux.
 
-* **4-creation_dataframe** : Ce notebook crée le dataframe qui sera pris en entrée de nos modèles.
+* **4-creation-dataframe** : Ce notebook crée le dataframe qui sera pris en entrée de nos modèles.
 Pour cela, on effectue les opérations suivantes:
     * on vérifie que les données GPS sont propres ;
     * on calcule un point GPS par heure ;
@@ -33,6 +33,15 @@ Dossier `regression-model/`:
 Dossier `saved-model/` :
 
 * Dans ce dossier se trouve la sauvegarde du modèle entraîné avec lequel nous avons obtenu nos meilleurs résultats. Un morceau de code permettant de le réutiliser se trouve dans le notebook **Regression_model_final**.
+
+
+Dossier `time-serie-models/` :
+
+Ce dossier  contient le code de l'approche deep learning essayée pour analyser les séries temporelles:
+
+* **Timeseries_Creation_Dataframe_Oiseaux**: Ce notebook prépare les données pour l'analyse des séries temporelles. Le code se base sur le notebook *4-creation-dataframe*.
+
+* **DLTS_Stork.ipynb**: Ce notebook contient le code utilisée pour implémenter des modèles de deep learning pour tester cette approche sur les séries temporelles.
 
 
 ## Illustrations
