@@ -1,33 +1,31 @@
 # Projet fil rouge
 
-## Notebooks
+Projet Fil rouge réalisé sur toute l'année dans le cadre du MS Big Data à Télécom Paris (module INFMDI780).
 
-### Préprocesser les fichiers des traces GPS individuellement
+## Structure du code
+
+Dossier `data-preparation/`:
+
 * **1-clean-bird-csv** : Ce notebook permet de pré-processer les fichiers contenant les traces GPS des oiseaux ; fichiers issus de Movebank. Il enlève 
- les colonnes que l'on utilisera pas et supprime les oiseaux qui ne migrent pas.
+ les colonnes que l'on n'utilisera pas, supprime les oiseaux qui ne migrent pas et enlève les jours en dehors des périodes de migration de chaque oiseau.
 
-* **2-clean-migration-periods** : Ce notebook permet d'extraire d'un fichier de points GPS, les points GPS qui sont au cours d'une migration.<br />
+ > Ce notebook a un équivalent en **script python**, qui permet d'appliquer les mêmes opérations que le notebook mais sur tous les fichiers présents dans un dossier en une seule exécution.
 
-* **3-compute-gps-surface** : Ce notebook calcule les surfaces couvertes par les oiseaux d'un fichier de tracking GPS provenant de Movebank. 
+* **2-concatenate-bird-csv** : Ce notebook permet de concaténer plusieurs fichiers *bird csv*, après qu'ils aient chacun été cleanés par le notebook *1-clean-bird-csv*.<br />
+La deuxième partie du notebook permet de diviser le fichier contenant toutes les traces GPS en un fichier par semestre.<br />
 
-> Ces notebooks ont chacun un équivalent en **scripts python**, qui permet d'appliquer les mêmes opérations que les notebooks mais sur tous les fichiers présents dans un dossier en une seule exécution.
+* **3-compute-gps-surface** : Ce notebook calcule les surfaces couvertes par les oiseaux d'un fichier de tracking GPS, pré-processé par le notebook *1-clean-bird-csv* ou par le notebook *2-concatenate-bird-csv*. On calcule ces surfaces selon une certaine granularité temporelle (par semestre par défaut).<br />
+L'objectif est de savoir quels seront les besoins en données météo pour couvrir les traces GPS de ces oiseaux.
 
-### Rassembler ces fichiers
-* **4-concatenate-bird** : Ce notebook permet de concaténer plusieurs fichiers *bird csv*, après qu'ils aient chacun été cleanés par le notebook *2-clean-migration-periods*.
-
-* **5-concatenate-gps-surface** : Ce notebook permet de concaténer plusieurs fichiers *migrations*, après qu'ils aient été produits par le notebook *3-compute-gps-surface*.
-
-* **6-summarize-all-gps-surface** : Ce notebook calcule les périodes de migration par semestre et par année. Ces périodes proviennent du csv produit par le notebook *5-concatenate-gps-surface*.
-
-### Exploration des données
-* **explore-bird-csv** : Ce notebook permet d'explorer des traces GPS d'oiseaux d'un fichier de données provenant de Movebank. 
-
-* **explore-weather-data** : Ce notebook permet d'explorer des fichiers au format netCDF4 contenant des données météo.
+* **4-creation_dataframe** : Ce notebook crée le dataframe qui sera pris en entrée de nos modèles.
+Pour cela, on effectue les opérations suivantes:
+    * on vérifie que les données GPS sont propres ;
+    * on calcule un point GPS par heure ;
+    * on ajoute à ces données les données météo ;
+    * on calcule des colonnes supplémentaires comme la variable ensoleillement.
 
 
-## TODO
 
-**Notes**: pour nos modèles il faudra penser à changer les types de données (ex: float64 -> float32) pour économiser de la mémoire
 
 ## Illustrations
 
