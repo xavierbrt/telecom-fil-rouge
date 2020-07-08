@@ -34,9 +34,6 @@ Dossier `saved-model/` :
 
 * Dans ce dossier se trouve la sauvegarde du modèle entraîné avec lequel nous avons obtenu nos meilleurs résultats. Un morceau de code permettant de le réutiliser se trouve dans le notebook **Regression_model_final**.
 
-* **Regression_model_exploration_3**: Ce notebook regroupe les explorations faites dans le cadre du développement des modèles de régression.
-
-* **Regression_model_final**: Ce notebook contient le code utilisé pour obtenir nos résultats avec les modèles de régression. Il traite du nettoyage des données, de leur préparation, des méthodes de sélections des caractéristiques, de sélection des modèles et du réglage des modèles les plus performants (XGBOOST, LIGHTGBM). Se trouvent également des affichages graphiques des résultats.
 
 Dossier `time-serie-models/` :
 
