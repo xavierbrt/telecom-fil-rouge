@@ -4,7 +4,7 @@ Projet Fil rouge réalisé sur toute l'année dans le cadre du MS Big Data à T�
 
 ## Structure du code
 
-Dossier `data-preparation/`:
+### Préparation des données
 
 * **1-clean-bird-csv** : Ce notebook permet de pré-processer les fichiers contenant les traces GPS des oiseaux ; fichiers issus de Movebank. Il enlève 
  les colonnes que l'on n'utilisera pas, supprime les oiseaux qui ne migrent pas et enlève les jours en dehors des périodes de migration de chaque oiseau.
@@ -17,14 +17,26 @@ La deuxième partie du notebook permet de diviser le fichier contenant toutes le
 * **3-compute-gps-surface** : Ce notebook calcule les surfaces couvertes par les oiseaux d'un fichier de tracking GPS, pré-processé par le notebook *1-clean-bird-csv* ou par le notebook *2-concatenate-bird-csv*. On calcule ces surfaces selon une certaine granularité temporelle (par semestre par défaut).<br />
 L'objectif est de savoir quels seront les besoins en données météo pour couvrir les traces GPS de ces oiseaux.
 
-* **4-creation_dataframe** : Ce notebook crée le dataframe qui sera pris en entrée de nos modèles.
+* **4-creation-dataframe** : Ce notebook crée le dataframe qui sera pris en entrée de nos modèles.
 Pour cela, on effectue les opérations suivantes:
     * on vérifie que les données GPS sont propres ;
     * on calcule un point GPS par heure ;
     * on ajoute à ces données les données météo ;
     * on calcule des colonnes supplémentaires comme la variable ensoleillement.
 
+### Modèles de régression
 
+* **Regression_model_exploration_3**: Ce notebook regroupe les explorations faites dans le cadre du développement des modèles de régression.
+
+* **Regression_model_final**: Ce notebook contient le code utilisé pour obtenir nos résultats avec les modèles de régression. Il traite du nettoyage des données, de leur préparation, des méthodes de sélections des caractéristiques, de sélection des modèles et du réglage des modèles les plus performants (XGBOOST, LIGHTGBM). Se trouvent également des affichages graphiques des résultats.
+
+### Tests de modèles à partir de séries temporelles
+
+Le dossier `time-serie-models/` contient le code de l'approche deep learning essayée pour analyser les séries temporelles:
+
+* **Timeseries_Creation_Dataframe_Oiseaux**: Ce notebook prépare les données pour l'analyse des séries temporelles. Le code se base sur le notebook *4-creation-dataframe*.
+
+* **DLTS_Stork.ipynb**: Ce notebook contient le code utilisée pour implémenter des modèles de deep learning pour tester cette approche sur les séries temporelles.
 
 
 ## Illustrations
